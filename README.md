@@ -9,4 +9,9 @@ Also I have added pictures on backround thumbnails to make it look attractive an
 
 Desktop aplications are not hosted there are just shared with the organisation and is run on a computer.
 
+# How to Run this App on your Pc :)
 For running my project on your pc you just have to clone my repository then import database in your xampp using hotelmgmtdb.sql file and then in pycharm create your own environment and run HotelManager.py file and tadaa!!! your application runs successfully.........
+
+
+# Tecnologies Used :-
+Python basics, Tkinter Library, Mysql(Database)
