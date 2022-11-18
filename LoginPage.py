@@ -45,6 +45,8 @@ class LoginClass:
         self.b1 = Button(self.window,text="Let me in!!!",background="black",
                          foreground='white',command=self.fetchData,height=2,width=100)
 
+        self.window.bind("<Key>",self.show)
+
 
         #--------- placements ------------------------------------------------
 
@@ -70,6 +72,10 @@ class LoginClass:
         self.b1.bind("<Leave>", lambda e: self.changeColor(bg2, "b1"))
 
         self.window.mainloop()
+
+    def show(self,evt):
+        if evt.keysym == 'Return':
+            self.fetchData()
 
     def changeColor(self, c, name):
         if name == "b1":

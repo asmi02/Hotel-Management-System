@@ -14,6 +14,7 @@ class ChangePasswordClass:
         h1=400
         self.window.minsize(w1,h1)
         self.window.geometry("%dx%d+%d+%d"%(w1,h1,400,200))
+        self.window.title("Change Password")
 
         # --------------------- background image -----------------
         from PIL import Image, ImageTk

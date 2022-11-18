@@ -15,6 +15,7 @@ class UserClass:
         self.window.geometry("%dx%d+%d+%d"%(1100,600,250,100))
 
         self.window.config(background="#caf7df")
+        self.window.title("Manage User")
 
         # --------------------- background image -----------------
         from PIL import Image, ImageTk

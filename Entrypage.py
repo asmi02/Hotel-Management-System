@@ -63,21 +63,42 @@ class Entrypage:
 
         # -----adding fields in submenu
 
-        self.menu1.add_command(label="Reception",command=lambda : HomePage(self.window))
+        self.report_icon = Image.open("Project_Pics//report.webp")
+        self.report_icon = self.report_icon.resize((10, 10))
+        self.report_icon2 = ImageTk.PhotoImage(self.report_icon)
+
+        self.menu1.add_command(label="Reception",command=lambda : HomePage(self.window),accelerator="ctrl+r")
+        self.window.bind("<Control-r>", lambda e: HomePage(self.window))
         self.menu2.add_command(label="Add Employee",command=lambda :add_employee(self.window))
         self.menu2.add_command(label="Add Room",command=lambda :add_room(self.window))
-        self.menu3.add_command(label="Print Customer Report",command=lambda :customer_report(self.window))
-        self.menu3.add_command(label="Print Employee Report",command=lambda :employee_report(self.window))
-        self.menu3.add_command(label="Print Checkout Report",command=lambda :checkout_report(self.window))
+        self.menu3.add_command(label="Print Customer Report",command=lambda :customer_report(self.window)
+                               ,image=self.report_icon2,compound=LEFT)
+        self.menu3.add_command(label="Print Employee Report",command=lambda :employee_report(self.window)
+                               ,image=self.report_icon2,compound=LEFT)
+        self.menu3.add_command(label="Print Checkout Report",command=lambda :checkout_report(self.window)
+                               ,image=self.report_icon2,compound=LEFT)
 
-        self.menu4.add_command(label="Manage User", command=lambda: UserClass(self.window))
-        self.menu4.add_command(label="Change Password", command=lambda: ChangePasswordClass(self.window, uname))
+
+        self.pswd_icon=Image.open("Project_Pics//password.png")
+        self.pswd_icon=self.pswd_icon.resize((10,10))
+        self.pswd_icon2=ImageTk.PhotoImage(self.pswd_icon)
+
+        self.user_icon = Image.open("Project_Pics//user.webp")
+        self.user_icon = self.user_icon.resize((10, 10))
+        self.user_icon2 = ImageTk.PhotoImage(self.user_icon)
+
+        self.menu4.add_command(label="Manage User", command=lambda: UserClass(self.window),accelerator="ctrl+u"
+                               ,image=self.user_icon2,compound=LEFT)
+        self.window.bind("<Control-u>", lambda e: UserClass(self.window))
+        self.menu4.add_command(label="Change Password", command=lambda: ChangePasswordClass(self.window, uname)
+                               ,image=self.pswd_icon2,compound=LEFT)
         self.menu4.add_command(label="Logout", command=lambda: self.quitter())
 
         if (utype == "Employee"):
             self.menubar.entryconfig(2, state='disabled')
             self.menubar.delete(1)
             self.menu4.entryconfig(0, state='disabled')
+            self.window.unbind("<Control-u>")
 
         # --------PLACEMENTS---------
 
