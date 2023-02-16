@@ -280,6 +280,10 @@ class add_employee:
                 self.img1 = Image.open("employee_images//" + self.actualname)
                 self.img1 = self.img1.resize((150, 150))
 
+                # converting and adding image to label
+                self.img2 = ImageTk.PhotoImage(self.img1)
+                self.imglbl.config(image=self.img2)
+
                 self.b4['state']='normal'
                 self.b5['state']='normal'
 
@@ -367,7 +371,7 @@ class add_employee:
         self.t7.delete(0,END)
         self.t8.delete(0,END)
         self.actualname = self.default_image
-        self.img1 = Image.open("customer_images//" + self.actualname)
+        self.img1 = Image.open("employee_images//" + self.actualname)
         self.img1 = self.img1.resize((150, 150))
 
         # converting and adding image to label

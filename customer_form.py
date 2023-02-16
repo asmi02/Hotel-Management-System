@@ -546,7 +546,7 @@ class customer_form:
             messagebox.showwarning("Validation Check", "Amount To Pay is not there check properly the pending dues", parent=self.window)
             return False
 
-        elif (self.t10.get()=="" or len(self.t10.get())<0):
+        elif (self.t10.get()=="" or len(self.t10.get())<0 or self.t10.get()>self.t9.cget("text")):
             messagebox.showwarning("Validation Check", "Deposit is not correct check properly the pending dues", parent=self.window)
             return False
 
